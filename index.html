@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Facilities Web GIS - Islamabad & Rawalpindi</title>
+
+  <!-- Leaflet CSS CDN -->
+  <link 
+    rel="stylesheet" 
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+    crossorigin="" 
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar / Control Panel -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Islamabad & Rawalpindi Healthcare GIS</h2>
+        <p class="study-area-desc">
+          Interactive Web GIS exploring active hospitals, clinics, and pharmacies across the twin cities using real-time OpenStreetMap spatial data.
+        </p>
+      </div>
+
+      <!-- Controls: Search & Category Filter -->
+      <div class="controls">
+        <label for="search-input">Search Facility Name:</label>
+        <input type="text" id="search-input" placeholder="e.g. Shifa, PIMS, Holy Family...">
+
+        <label for="category-filter">Filter by Category:</label>
+        <select id="category-filter">
+          <option value="all">All Healthcare Facilities</option>
+          <option value="hospital">Hospitals</option>
+          <option value="clinic">Clinics</option>
+          <option value="pharmacy">Pharmacies</option>
+        </select>
+      </div>
+
+      <!-- Loading Indicator & Error Messages -->
+      <div id="status-panel" class="status-panel">
+        <div id="loading-spinner" class="spinner"></div>
+        <p id="status-message">Fetching spatial data from Overpass API...</p>
+      </div>
+
+      <!-- Selected Feature Information Panel -->
+      <div id="info-panel" class="info-panel">
+        <h3>Feature Details</h3>
+        <p id="info-content">Click on any marker on the map to inspect its details.</p>
+      </div>
+
+      <!-- Attribution & Metadata Footer -->
+      <footer class="sidebar-footer">
+        <p><strong>Data Source:</strong> OpenStreetMap via Overpass API</p>
+        <p><strong>Technologies:</strong> Leaflet.js, Vanilla JS, HTML5 & CSS3</p>
+      </footer>
+    </aside>
+
+    <!-- Map Container -->
+    <main id="map"></main>
+  </div>
+
+  <!-- Leaflet JS CDN -->
+  <script 
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+    crossorigin="">
+  </script>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
